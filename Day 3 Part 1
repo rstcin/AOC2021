@@ -1,0 +1,20 @@
+with open('Day3.txt') as f:
+  lines = f.readlines()
+
+u = range(1,len(max(lines)))
+n = 0
+gamma = []
+epsilon = []
+
+for i in u:
+    b = ([i[0+n:1+n] for i in lines])
+    n += 1
+    maxb = max(set(b), key = b.count)
+    minb = min(set(b), key = b.count)
+    gamma.append(maxb)
+    epsilon.append(minb)
+    
+g = int(str(''.join([str(n) for n in gamma])),2)
+e = int(str(''.join([str(n) for n in epsilon])),2)
+
+print(g*e)
